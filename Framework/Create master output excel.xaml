@@ -1,0 +1,137 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Create_master_output_excel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1210,1704</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Create_master_output_excel_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Create_master_output_excel" sap:VirtualizedContainerService.HintSize="1220,1639.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="varSubTableSheetString" />
+      <Variable x:TypeArguments="sd:DataTable" Name="varSubTableSheet" />
+      <Variable x:TypeArguments="sd:DataTable" Name="varMainTableSheet" />
+      <Variable x:TypeArguments="x:Boolean" Name="varFolderExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="varFileExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[varSubTableSheet]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1178,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_Config(&quot;sheetNameforSubTable&quot;).ToString]" WorkbookPath="[in_Config(&quot;tempExcelFilePath&quot;).ToString]" />
+    <ui:OutputDataTable DataTable="[varSubTableSheet]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="1178,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[varSubTableSheetString]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1178,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[varSubTableSheetString]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[varSubTableSheetString.Replace(vbcrlf,";").Replace("Item Name,Quantity,Item Price;","")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteCell Cell="D2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="1178,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[in_Config(&quot;sheetNameforMainTable&quot;).ToString]" Text="[varSubTableSheetString]" WorkbookPath="[in_Config(&quot;tempExcelFilePath&quot;).ToString]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[varMainTableSheet]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1178,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[in_Config(&quot;sheetNameforMainTable&quot;).ToString]" WorkbookPath="[in_Config(&quot;tempExcelFilePath&quot;).ToString]" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[varFolderExists]" sap:VirtualizedContainerService.HintSize="1178,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;)]" PathType="Folder" />
+    <If Condition="[not(varFolderExists)]" sap:VirtualizedContainerService.HintSize="1178,665.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,80.6666666666667" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;)]" />
+          <ui:WriteRange AddHeaders="True" DataTable="[varMainTableSheet]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;\&quot; + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;.xlsx&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="756,501.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:PathExists DisplayName="Path Exists" Exists="[varFileExists]" sap:VirtualizedContainerService.HintSize="714,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;\&quot; + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;.xlsx&quot;]" PathType="File" />
+          <If Condition="[varFileExists]" sap:VirtualizedContainerService.HintSize="714,278.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <ui:AppendRange DataTable="[varMainTableSheet]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;\&quot; + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;.xlsx&quot;]" />
+            </If.Then>
+            <If.Else>
+              <ui:WriteRange AddHeaders="True" DataTable="[varMainTableSheet]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[in_Config(&quot;outputFolderPath&quot;).ToString + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;\&quot; + DateTime.Now.ToString(&quot;ddMMMMyyyy&quot;) + &quot;.xlsx&quot;]" />
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="1178,80.6666666666667" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[in_Config(&quot;tempExcelFilePath&quot;).ToString]" />
+  </Sequence>
+</Activity>
